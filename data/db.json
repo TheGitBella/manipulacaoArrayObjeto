@@ -1,0 +1,159 @@
+{
+	"people": [
+		{
+			"id": 1,
+			"name": "Eduardo",
+			"birthDate": "2000-01-20T00:00:00.000",
+			"pets": [
+				{
+					"id": 1,
+					"name": "Spike",
+					"type": "dog"
+				},
+				{
+					"id": 2,
+					"name": "Frajola",
+					"type": "cat"
+				}
+			]
+		},
+		{
+			"id": 2,
+			"name": "Maria",
+			"birthDate": "1996-07-04T00:00:00.000",
+			"pets": [
+				{
+					"id": 3,
+					"name": "Biscoito",
+					"type": "cat"
+				}
+			]
+		},
+		{
+			"id": 3,
+			"name": "Marcus",
+			"birthDate": "1970-10-14T00:00:00.000",
+			"pets": []
+		},
+		{
+			"id": 4,
+			"name": "Ana",
+			"birthDate": "1989-12-07T00:00:00.000",
+			"pets": [
+				{
+					"id": 4,
+					"name": "Brutos",
+					"type": "dog"
+				},
+				{
+					"id": 5,
+					"name": "Amora",
+					"type": "dog"
+				},
+				{
+					"id": 6,
+					"name": "Alfredo",
+					"type": "dog"
+				}
+			]
+		},
+		{
+			"id": 5,
+			"name": "Antônio",
+			"birthDate": "1992-03-03T00:00:00.000",
+			"pets": [
+				{
+					"id": 7,
+					"name": "Bolhas",
+					"type": "fish"
+				}
+			]
+		},
+		{
+			"id": 5,
+			"name": "Maryanna",
+			"birthDate": "2002-04-27T00:00:00.000",
+			"pets": [
+				{
+					"id": 8,
+					"name": "Malhado",
+					"type": "cat"
+				},
+				{
+					"id": 9,
+					"name": "Rajada",
+					"type": "cat"
+				}
+			]
+		},
+		{
+			"id": 6,
+			"name": "Pedro",
+			"birthDate": "2000-05-21T00:00:00.000",
+			"pets": [
+				{
+					"id": 10,
+					"name": "Filho",
+					"type": "bird"
+				}
+			]
+		},
+		{
+			"id": 7,
+			"name": "Vivian",
+			"birthDate": "1997-05-11T00:00:00.000",
+			"pets": []
+		},
+		{
+			"id": 8,
+			"name": "Lucas",
+			"birthDate": "2000-02-20T00:00:00.000",
+			"pets": [
+				{
+					"id": 11,
+					"name": "Luna",
+					"type": "cat"
+				}
+			]
+		},
+		{
+			"id": 9,
+			"name": "Emily",
+			"birthDate": "1985-09-25T00:00:00.000",
+			"pets": [
+				{
+					"id": 12,
+					"name": "Thor",
+					"type": "dog"
+				}
+			]
+		},
+		{
+			"id": 10,
+			"name": "Natália",
+			"birthDate": "1880-04-29T00:00:00.000",
+			"pets": [
+				{
+					"id": 13,
+					"name": "Spartacus",
+					"type": "dog"
+				},
+				{
+					"id": 14,
+					"name": "Rex",
+					"type": "dog"
+				},
+				{
+					"id": 15,
+					"name": "Mino",
+					"type": "cat"
+				},
+				{
+					"id": 16,
+					"name": "Peralta",
+					"type": "cat"
+				}
+			]
+		}
+	]
+}
