@@ -1,85 +1,31 @@
-//importação do BD
-var jsonData = require("./data/db.json");
-var data = jsonData;
-//testando BD
-/* const maria = data.people.find((item) => item.name === "Maria");
-const biscoito = maria?.pets.find((item) => item.name === "Biscoito");
-console.log(biscoito); */
-//new pet
-var id = data.people.flatMap(function (item) { return item.pets; }).length + 1;
-var personName = "";
-var newPet = {};
-var createPet = function (personName, newPet) {
-    var _a;
-    (_a = data.people.find(function (item) { return item.name === personName; })) === null || _a === void 0 ? void 0 : _a.pets.push(newPet);
-    console.log(data.people.flatMap(function (item) { return item.pets; }));
+"use strict";
+exports.__esModule = true;
+// db
+var db_1 = require("./src/db");
+// useCases
+var useCases_1 = require("./src/useCases");
+var runApplication = function () {
+    var initialize = (0, db_1.useDb)().initialize;
+    initialize();
+    // Antônio adotou uma nova gata chamada Nevinha.
+    (0, useCases_1.useAddNevinha)().execute();
+    // Maria comprou um aquário com trÊs peixes, Cascudo, Rei e Pintado.
+    (0, useCases_1.useAddFishes)().execute();
+    (0, useCases_1.useConsoleOlds)(1).execute();
 };
-//Antônio adotou uma nova gata chamada Nevinha.
-createPet("Antônio", { id: id, name: "Nevinha", type: "cat" });
-//Maria comprou um aquário com dois peixes, Cascudo e Rei.
-createPet("Maria", { id: id, name: "Cascudo", type: "fish" });
-createPet("Maria", { id: id, name: "Rei", type: "fish" });
-//Qual a idade de cada pessoa agora?
-var today = new Date();
-var tYear = today.getFullYear();
-var tMonth = today.getMonth();
-var tDay = today.getDay();
-var bYear = data.people.map(function (item) { return new Date(item.birthDate).getFullYear(); });
-var bMonth = data.people.map(function (item) { return new Date(item.birthDate).getMonth() + 1; });
-var bDay = data.people.map(function (item) { return new Date(item.birthDate).getDay(); });
-var day = bDay.map(function (item) { return tDay - item; });
-var month = bMonth.map(function (item) { return tMonth - item + 1; });
-console.log(tDay);
-var calcAge = function () {
-    //Já fez aniversário esse ano
-    if (month.map(function (item) { return item > 0; })) {
-        var age = bYear.map(function (item) { return tYear - item; });
-        console.log("Primeiro caso: ", age);
-    }
-    //Já fez aniversário esse ano
-    else if (month.map(function (item) { return item === 0; }) && day.map(function (item) { return item > 0; })) {
-        var age = bYear.map(function (item) { return tYear - item; });
-        console.log("Segundo caso: ", age);
-    }
-    //Não fez aniversário esse ano
-    else {
-        var age = bYear.map(function (item) { return tYear - item - 1; });
-        console.log("Terceiro caso: ", age);
-    }
-};
-calcAge();
-/* const age = []
-const calcAge = month.map((item) => item > 0)) {
-        const age = bYear.map((item) => tYear - item);
-        console.log(
-            data.people.map((item) => `Primeiro caso: ${item.name} tem ${age}`)
-        );
-    }
-    //Já fez aniversário esse ano
-    else if (month.map((item) => item === 0) && day.map((item) => item > 0)) {
-        const age = bYear.map((item) => tYear - item);
-        console.log("Segundo caso: ", age);
-    }
-    //Não fez aniversário esse ano
-    else {
-        const age = bYear.map((item) => tYear - item - 1);
-        console.log("Terceiro caso: ", age);
-    }
-};
-
-calcAge(); */
+runApplication();
 //Adicione a propriedade "money" (numérico) a todas as pessoas, com valor inicial igual a 0.
 /* const money = { money: 0 };
-data.people.forEach((item) => {
+data..forEach((item) => {
     Object.assign(item, money);
 });
-console.log(data); */
+// console.log(data); */
 //Adicione a propriedade "country" a todas as pessoas, as três primeiras pessoas moram no Brasil, as duas últimas na França, e o restante nos EUA.
 /* const money = { money: 0 };
-data.people.forEach((item) => {
+data..forEach((item) => {
     Object.assign(item, money);
 });
-console.log(data); */
+// console.log(data); */
 //Marcus possuí uma dívida de R$ 2.000,00
 //Adicione a propriedade "breed" (raça) a todos os pets, com valor inicial "SRD" (Sem raça definida).
 //Adicione a propriedade "color" a todos os pets, com valor inicial "PATTERN" (vamos usar este valor para específicar animais como 'malhados').

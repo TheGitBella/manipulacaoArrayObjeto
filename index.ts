@@ -1,117 +1,37 @@
-//importação do BD
-const jsonData = require("./data/db.json");
-//const jsonData2 = JSON.stringify(jsonData);
-//const jsonData3 = JSON.parse(jsonData);
+// db
+import { useDb } from './src/db'
 
-//types
-interface Pet {
-	id: any;
-	name: string;
-	type: string;
-}
-interface Person {
-	id: number;
-	name: string;
-	birthDate: string;
-	money?: number;
-	pets: Pet[];
-}
-interface TypeObj {
-	people: Person[];
+// useCases
+import { useConsoleOlds, useAddNevinha, useAddFishes } from './src/useCases'
+
+const runApplication = () => {
+  const { initialize } = useDb()
+
+  initialize()
+
+  // Antônio adotou uma nova gata chamada Nevinha.
+  useAddNevinha().execute()
+
+  // Maria comprou um aquário com trÊs peixes, Cascudo, Rei e Pintado.
+  useAddFishes().execute()
+
+  useConsoleOlds(1).execute()
 }
 
-const data: TypeObj = jsonData;
-
-//testando BD
-/* const maria = data.people.find((item) => item.name === "Maria");
-const biscoito = maria?.pets.find((item) => item.name === "Biscoito");
-console.log(biscoito); */
-
-//new pet
-const id = data.people.flatMap((item) => item.pets).length + 1;
-const personName: String = "";
-const newPet = {};
-const createPet = (personName, newPet: Pet) => {
-	data.people.find((item) => item.name === personName)?.pets.push(newPet);
-	console.log(data.people.flatMap((item) => item.pets));
-};
-
-//Antônio adotou uma nova gata chamada Nevinha.
-createPet("Antônio", { id: id, name: "Nevinha", type: "cat" });
-
-//Maria comprou um aquário com dois peixes, Cascudo e Rei.
-createPet("Maria", { id: id, name: "Cascudo", type: "fish" });
-createPet("Maria", { id: id, name: "Rei", type: "fish" });
-
-//Qual a idade de cada pessoa agora?
-const today = new Date();
-const tYear = today.getFullYear();
-const tMonth = today.getMonth();
-const tDay = today.getDay();
-const bYear = data.people.map((item) => new Date(item.birthDate).getFullYear());
-const bMonth = data.people.map(
-	(item) => new Date(item.birthDate).getMonth() + 1
-);
-const bDay = data.people.map((item) => new Date(item.birthDate).getDay());
-
-const day = bDay.map((item) => tDay - item);
-const month = bMonth.map((item) => tMonth - item + 1);
-console.log(tDay);
-
-const calcAge = () => {
-	//Já fez aniversário esse ano
-	if (month.map((item) => item > 0)) {
-		const age = bYear.map((item) => tYear - item);
-		console.log("Primeiro caso: ", age);
-	}
-	//Já fez aniversário esse ano
-	else if (month.map((item) => item === 0) && day.map((item) => item > 0)) {
-		const age = bYear.map((item) => tYear - item);
-		console.log("Segundo caso: ", age);
-	}
-	//Não fez aniversário esse ano
-	else {
-		const age = bYear.map((item) => tYear - item - 1);
-		console.log("Terceiro caso: ", age);
-	}
-};
-
-calcAge();
-
-/* const age = []
-const calcAge = month.map((item) => item > 0)) {
-		const age = bYear.map((item) => tYear - item);
-		console.log(
-			data.people.map((item) => `Primeiro caso: ${item.name} tem ${age}`)
-		);
-	}
-	//Já fez aniversário esse ano
-	else if (month.map((item) => item === 0) && day.map((item) => item > 0)) {
-		const age = bYear.map((item) => tYear - item);
-		console.log("Segundo caso: ", age);
-	}
-	//Não fez aniversário esse ano
-	else {
-		const age = bYear.map((item) => tYear - item - 1);
-		console.log("Terceiro caso: ", age);
-	}
-};
-
-calcAge(); */
-
+runApplication()
 //Adicione a propriedade "money" (numérico) a todas as pessoas, com valor inicial igual a 0.
 /* const money = { money: 0 };
-data.people.forEach((item) => {
+data..forEach((item) => {
 	Object.assign(item, money);
 });
-console.log(data); */
+// console.log(data); */
 
 //Adicione a propriedade "country" a todas as pessoas, as três primeiras pessoas moram no Brasil, as duas últimas na França, e o restante nos EUA.
 /* const money = { money: 0 };
-data.people.forEach((item) => {
+data..forEach((item) => {
 	Object.assign(item, money);
 });
-console.log(data); */
+// console.log(data); */
 
 //Marcus possuí uma dívida de R$ 2.000,00
 
