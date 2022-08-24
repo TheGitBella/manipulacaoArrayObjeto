@@ -8,7 +8,8 @@ export interface Person {
 	id: number;
 	name: string;
 	birthDate: string;
-	money?: number;
+	money: number;
+	country: string;
 	pets: Pet[];
 }
 

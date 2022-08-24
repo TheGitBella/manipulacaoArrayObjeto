@@ -2,7 +2,7 @@
 import { useDb } from './src/db'
 
 // useCases
-import { useConsoleOlds, useAddNevinha, useAddFishes } from './src/useCases'
+import { useConsoleOlds, useAddNevinha, useAddFishes, addMoney, addCountry } from './src/useCases'
 
 const runApplication = () => {
   const { initialize } = useDb()
@@ -15,23 +15,17 @@ const runApplication = () => {
   // Maria comprou um aquário com trÊs peixes, Cascudo, Rei e Pintado.
   useAddFishes().execute()
 
-  useConsoleOlds(1).execute()
+  //Qual a idade de cada pessoa agora?
+  useConsoleOlds(0).execute()
+  
+  //Adicione a propriedade "money" (numérico) a todas as pessoas, com valor inicial igual a 0.
+  addMoney().execute()
+
+  //Adicione a propriedade "country" a todas as pessoas, as três primeiras pessoas moram no Brasil, as duas últimas na França, e o restante nos EUA.
+  addCountry().execute()
 }
 
 runApplication()
-//Adicione a propriedade "money" (numérico) a todas as pessoas, com valor inicial igual a 0.
-/* const money = { money: 0 };
-data..forEach((item) => {
-	Object.assign(item, money);
-});
-// console.log(data); */
-
-//Adicione a propriedade "country" a todas as pessoas, as três primeiras pessoas moram no Brasil, as duas últimas na França, e o restante nos EUA.
-/* const money = { money: 0 };
-data..forEach((item) => {
-	Object.assign(item, money);
-});
-// console.log(data); */
 
 //Marcus possuí uma dívida de R$ 2.000,00
 

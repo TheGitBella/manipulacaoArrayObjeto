@@ -11,21 +11,14 @@ var runApplication = function () {
     (0, useCases_1.useAddNevinha)().execute();
     // Maria comprou um aquário com trÊs peixes, Cascudo, Rei e Pintado.
     (0, useCases_1.useAddFishes)().execute();
-    (0, useCases_1.useConsoleOlds)(1).execute();
+    //Qual a idade de cada pessoa agora?
+    (0, useCases_1.useConsoleOlds)(0).execute();
+    //Adicione a propriedade "money" (numérico) a todas as pessoas, com valor inicial igual a 0.
+    (0, useCases_1.addMoney)().execute();
+    //Adicione a propriedade "country" a todas as pessoas, as três primeiras pessoas moram no Brasil, as duas últimas na França, e o restante nos EUA.
+    (0, useCases_1.addCountry)().execute();
 };
 runApplication();
-//Adicione a propriedade "money" (numérico) a todas as pessoas, com valor inicial igual a 0.
-/* const money = { money: 0 };
-data..forEach((item) => {
-    Object.assign(item, money);
-});
-// console.log(data); */
-//Adicione a propriedade "country" a todas as pessoas, as três primeiras pessoas moram no Brasil, as duas últimas na França, e o restante nos EUA.
-/* const money = { money: 0 };
-data..forEach((item) => {
-    Object.assign(item, money);
-});
-// console.log(data); */
 //Marcus possuí uma dívida de R$ 2.000,00
 //Adicione a propriedade "breed" (raça) a todos os pets, com valor inicial "SRD" (Sem raça definida).
 //Adicione a propriedade "color" a todos os pets, com valor inicial "PATTERN" (vamos usar este valor para específicar animais como 'malhados').
