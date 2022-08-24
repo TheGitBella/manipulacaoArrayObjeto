@@ -1,6 +1,6 @@
 import { useDb } from '../db'
 
-export const addMoney = () => {
+export const useAddMoney = () => {
     const { getData } = useDb()
 
     const execute = (): void => {

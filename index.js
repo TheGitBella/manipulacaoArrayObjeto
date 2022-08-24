@@ -14,13 +14,15 @@ var runApplication = function () {
     //Qual a idade de cada pessoa agora?
     (0, useCases_1.useConsoleOlds)(0).execute();
     //Adicione a propriedade "money" (numérico) a todas as pessoas, com valor inicial igual a 0.
-    (0, useCases_1.addMoney)().execute();
+    (0, useCases_1.useAddMoney)().execute();
     //Adicione a propriedade "country" a todas as pessoas, as três primeiras pessoas moram no Brasil, as duas últimas na França, e o restante nos EUA.
-    (0, useCases_1.addCountry)().execute();
+    (0, useCases_1.useAddCountry)().execute();
+    //Marcus possuí uma dívida de R$ 2.000,00
+    (0, useCases_1.useAddDebt)().execute();
+    //Adicione a propriedade "breed" (raça) a todos os pets, com valor inicial "SRD" (Sem raça definida).
+    (0, useCases_1.useAddBreed)().execute();
 };
 runApplication();
-//Marcus possuí uma dívida de R$ 2.000,00
-//Adicione a propriedade "breed" (raça) a todos os pets, com valor inicial "SRD" (Sem raça definida).
 //Adicione a propriedade "color" a todos os pets, com valor inicial "PATTERN" (vamos usar este valor para específicar animais como 'malhados').
 //Eduardo recebeu uma herança de R$ 1.000.000,00.
 //Recentemente, Spartacus foi descoberto como um "Pastor Alemão".

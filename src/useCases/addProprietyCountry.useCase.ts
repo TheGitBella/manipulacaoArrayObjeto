@@ -1,6 +1,6 @@
 import { useDb } from '../db'
 
-export const addCountry = () => {
+export const useAddCountry = () => {
     const { getData } = useDb()
 
     const execute = (): void => {

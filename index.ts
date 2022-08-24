@@ -2,7 +2,7 @@
 import { useDb } from './src/db'
 
 // useCases
-import { useConsoleOlds, useAddNevinha, useAddFishes, addMoney, addCountry } from './src/useCases'
+import { useConsoleOlds, useAddNevinha, useAddFishes, useAddMoney, useAddCountry, useAddDebt, useAddBreed } from './src/useCases'
 
 const runApplication = () => {
   const { initialize } = useDb()
@@ -19,17 +19,21 @@ const runApplication = () => {
   useConsoleOlds(0).execute()
   
   //Adicione a propriedade "money" (numérico) a todas as pessoas, com valor inicial igual a 0.
-  addMoney().execute()
+  useAddMoney().execute()
 
   //Adicione a propriedade "country" a todas as pessoas, as três primeiras pessoas moram no Brasil, as duas últimas na França, e o restante nos EUA.
-  addCountry().execute()
+  useAddCountry().execute()
+  
+  //Marcus possuí uma dívida de R$ 2.000,00
+  useAddDebt().execute()
+  
+  //Adicione a propriedade "breed" (raça) a todos os pets, com valor inicial "SRD" (Sem raça definida).
+  useAddBreed().execute()
 }
 
 runApplication()
 
-//Marcus possuí uma dívida de R$ 2.000,00
 
-//Adicione a propriedade "breed" (raça) a todos os pets, com valor inicial "SRD" (Sem raça definida).
 
 //Adicione a propriedade "color" a todos os pets, com valor inicial "PATTERN" (vamos usar este valor para específicar animais como 'malhados').
 
