@@ -5,7 +5,7 @@ const jsonData = require("./data/db.json");
 
 //types
 interface Pet {
-	id: number;
+	id: any;
 	name: string;
 	type: string;
 }
@@ -44,23 +44,60 @@ createPet("Maria", { id: id, name: "Cascudo", type: "fish" });
 createPet("Maria", { id: id, name: "Rei", type: "fish" });
 
 //Qual a idade de cada pessoa agora?
-//const today = Date.now();
-//const tYear = today.getFullYear();
-//const tMonth = today.getMonth();
-//const tDay = today.getDay();
-//const age = data.people.map(
-//	(item) => `${item.name} tem ${Date.parse(item.birthDate) / 31536000000}`
-//);
+const today = new Date();
+const tYear = today.getFullYear();
+const tMonth = today.getMonth();
+const tDay = today.getDay();
+const bYear = data.people.map((item) => new Date(item.birthDate).getFullYear());
+const bMonth = data.people.map(
+	(item) => new Date(item.birthDate).getMonth() + 1
+);
+const bDay = data.people.map((item) => new Date(item.birthDate).getDay());
 
-/* const birthDate = data.people.map((item) =>
-	new Date(item.birthDate).getFullYear()
-	console.log(birthDate);
-); */
+const day = bDay.map((item) => tDay - item);
+const month = bMonth.map((item) => tMonth - item + 1);
+console.log(tDay);
 
-//const bYear = data.people.map((item) => item.birthDate.getFullYear());
-//const bMonth = birthDate.getMonth();
-//const bDay = birthDate.getDay();
-//console.log(birthDate.map((item) => (item - today) / 31536000));
+const calcAge = () => {
+	//Já fez aniversário esse ano
+	if (month.map((item) => item > 0)) {
+		const age = bYear.map((item) => tYear - item);
+		console.log("Primeiro caso: ", age);
+	}
+	//Já fez aniversário esse ano
+	else if (month.map((item) => item === 0) && day.map((item) => item > 0)) {
+		const age = bYear.map((item) => tYear - item);
+		console.log("Segundo caso: ", age);
+	}
+	//Não fez aniversário esse ano
+	else {
+		const age = bYear.map((item) => tYear - item - 1);
+		console.log("Terceiro caso: ", age);
+	}
+};
+
+calcAge();
+
+/* const age = []
+const calcAge = month.map((item) => item > 0)) {
+		const age = bYear.map((item) => tYear - item);
+		console.log(
+			data.people.map((item) => `Primeiro caso: ${item.name} tem ${age}`)
+		);
+	}
+	//Já fez aniversário esse ano
+	else if (month.map((item) => item === 0) && day.map((item) => item > 0)) {
+		const age = bYear.map((item) => tYear - item);
+		console.log("Segundo caso: ", age);
+	}
+	//Não fez aniversário esse ano
+	else {
+		const age = bYear.map((item) => tYear - item - 1);
+		console.log("Terceiro caso: ", age);
+	}
+};
+
+calcAge(); */
 
 //Adicione a propriedade "money" (numérico) a todas as pessoas, com valor inicial igual a 0.
 /* const money = { money: 0 };

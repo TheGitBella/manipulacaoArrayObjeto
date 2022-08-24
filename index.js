@@ -6,7 +6,7 @@ var data = jsonData;
 const biscoito = maria?.pets.find((item) => item.name === "Biscoito");
 console.log(biscoito); */
 //new pet
-var id = data.people.flatMap(function (item) { return item.pets; }).length++;
+var id = data.people.flatMap(function (item) { return item.pets; }).length + 1;
 var personName = "";
 var newPet = {};
 var createPet = function (personName, newPet) {
@@ -20,21 +20,54 @@ createPet("Antônio", { id: id, name: "Nevinha", type: "cat" });
 createPet("Maria", { id: id, name: "Cascudo", type: "fish" });
 createPet("Maria", { id: id, name: "Rei", type: "fish" });
 //Qual a idade de cada pessoa agora?
-//const today = Date.now();
-//const tYear = today.getFullYear();
-//const tMonth = today.getMonth();
-//const tDay = today.getDay();
-//const age = data.people.map(
-//	(item) => `${item.name} tem ${Date.parse(item.birthDate) / 31536000000}`
-//);
-/* const birthDate = data.people.map((item) =>
-    new Date(item.birthDate).getFullYear()
-    console.log(birthDate);
-); */
-//const bYear = data.people.map((item) => item.birthDate.getFullYear());
-//const bMonth = birthDate.getMonth();
-//const bDay = birthDate.getDay();
-//console.log(birthDate.map((item) => (item - today) / 31536000));
+var today = new Date();
+var tYear = today.getFullYear();
+var tMonth = today.getMonth();
+var tDay = today.getDay();
+var bYear = data.people.map(function (item) { return new Date(item.birthDate).getFullYear(); });
+var bMonth = data.people.map(function (item) { return new Date(item.birthDate).getMonth() + 1; });
+var bDay = data.people.map(function (item) { return new Date(item.birthDate).getDay(); });
+var day = bDay.map(function (item) { return tDay - item; });
+var month = bMonth.map(function (item) { return tMonth - item + 1; });
+console.log(tDay);
+var calcAge = function () {
+    //Já fez aniversário esse ano
+    if (month.map(function (item) { return item > 0; })) {
+        var age = bYear.map(function (item) { return tYear - item; });
+        console.log("Primeiro caso: ", age);
+    }
+    //Já fez aniversário esse ano
+    else if (month.map(function (item) { return item === 0; }) && day.map(function (item) { return item > 0; })) {
+        var age = bYear.map(function (item) { return tYear - item; });
+        console.log("Segundo caso: ", age);
+    }
+    //Não fez aniversário esse ano
+    else {
+        var age = bYear.map(function (item) { return tYear - item - 1; });
+        console.log("Terceiro caso: ", age);
+    }
+};
+calcAge();
+/* const age = []
+const calcAge = month.map((item) => item > 0)) {
+        const age = bYear.map((item) => tYear - item);
+        console.log(
+            data.people.map((item) => `Primeiro caso: ${item.name} tem ${age}`)
+        );
+    }
+    //Já fez aniversário esse ano
+    else if (month.map((item) => item === 0) && day.map((item) => item > 0)) {
+        const age = bYear.map((item) => tYear - item);
+        console.log("Segundo caso: ", age);
+    }
+    //Não fez aniversário esse ano
+    else {
+        const age = bYear.map((item) => tYear - item - 1);
+        console.log("Terceiro caso: ", age);
+    }
+};
+
+calcAge(); */
 //Adicione a propriedade "money" (numérico) a todas as pessoas, com valor inicial igual a 0.
 /* const money = { money: 0 };
 data.people.forEach((item) => {
