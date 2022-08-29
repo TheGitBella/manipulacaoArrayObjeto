@@ -1,6 +1,6 @@
 import { useDb } from './hook'
 
-import { Pet } from '../types'
+import { Pet, Person } from '../types'
 
 import { usePersonRepository } from './person.repository'
 
@@ -53,6 +53,36 @@ export const usePetRepository = () => {
     }
   }
 
+  const deletePet = (pet: Pet) => {
+    const data = listAllPets()
+
+    const foundIndex = data.findIndex((item) => item.name === pet.name)
+
+    if (foundIndex > -1) {
+      data.splice(foundIndex, 1)
+    }
+    
+  return {
+    findPet,
+    deletePet,
+  }
+  }
+
+  const updatePet = (pet: Pet) => {
+    const data = listAllPets()
+
+    const foundIndex = data.findIndex((item) => item.name === pet.name)
+
+    if (foundIndex > -1) {
+      data.splice(foundIndex, 1, pet)
+    }
+    
+  return {
+    findPet,
+    updatePet,
+  }
+  }
+
   const logPets = (personName: string) => {
     const person = findPerson(personName)
 
@@ -70,6 +100,8 @@ export const usePetRepository = () => {
     createPet,
     listPetsByPerson,
     listAllPets,
+    deletePet,
+    updatePet,
     logPets,
   }
 }

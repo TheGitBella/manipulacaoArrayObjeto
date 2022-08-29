@@ -1,14 +1,14 @@
 import { usePetRepository } from '../db'
 
-export const useAddBreed = () => {
+export const useAddColor = () => {
     const { listAllPets } = usePetRepository()
 
     const execute = (): void => {
     const data = listAllPets()
 
-    console.log(`\nTodas os pets tem suas raças registradas:\n`)
+    console.log(`\nTodas os pets tem suas cores registradas:\n`)
     data.forEach((item) => {
-        Object.assign(item, { breed: "SRD" })      
+        Object.assign(item, { color: "PATTERN" })      
 
     })
 

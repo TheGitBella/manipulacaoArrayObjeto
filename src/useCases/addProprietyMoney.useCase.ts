@@ -1,7 +1,7 @@
 import { useDb } from '../db'
 
 export const useAddMoney = () => {
-    const { getData } = useDb()
+    const { getData, setData } = useDb()
 
     const execute = (): void => {
     const data = getData()
@@ -10,8 +10,10 @@ export const useAddMoney = () => {
     data.forEach((item) => {
         Object.assign(item, { money: 0 })
         
-        console.log(`O ${item.name} possui ${item.money} reais`)
+        console.log(`${item.name} possui ${item.money} reais`)
     })
+
+setData(data)
 }
 
     return { execute }

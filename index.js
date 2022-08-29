@@ -9,30 +9,40 @@ var runApplication = function () {
     initialize();
     // Antônio adotou uma nova gata chamada Nevinha.
     (0, useCases_1.useAddNevinha)().execute();
-    // Maria comprou um aquário com trÊs peixes, Cascudo, Rei e Pintado.
+    // Maria comprou um aquário com três peixes, Cascudo, Rei e Pintado.
     (0, useCases_1.useAddFishes)().execute();
     //Qual a idade de cada pessoa agora?
     (0, useCases_1.useConsoleOlds)(0).execute();
     //Adicione a propriedade "money" (numérico) a todas as pessoas, com valor inicial igual a 0.
     (0, useCases_1.useAddMoney)().execute();
     //Adicione a propriedade "country" a todas as pessoas, as três primeiras pessoas moram no Brasil, as duas últimas na França, e o restante nos EUA.
-    (0, useCases_1.useAddCountry)().execute();
+    (0, useCases_1.useAddCountry)().execute(); // Refatorar
     //Marcus possuí uma dívida de R$ 2.000,00
     (0, useCases_1.useAddDebt)().execute();
     //Adicione a propriedade "breed" (raça) a todos os pets, com valor inicial "SRD" (Sem raça definida).
     (0, useCases_1.useAddBreed)().execute();
+    //Adicione a propriedade "color" a todos os pets, com valor inicial "PATTERN" (vamos usar este valor para específicar animais como 'malhados').
+    (0, useCases_1.useAddColor)().execute();
+    //Eduardo recebeu uma herança de R$ 1.000.000,00.
+    (0, useCases_1.useAddInheritance)().execute();
+    //Recentemente, Spartacus foi descoberto como um "Pastor Alemão".
+    (0, useCases_1.useUpdateSpartacus)().execute();
+    //Ana mudou-se para o Canadá.
+    (0, useCases_1.useUpdateCountry)().execute();
+    //Alfredo é um labrador.
+    (0, useCases_1.useUpdateAlfredo)().execute();
+    //Passou-se um ano, qual a idade de cada pessoa agora?
+    (0, useCases_1.useConsoleOlds)(1).execute();
+    //Nevinha é branca.
+    (0, useCases_1.useUpdateNevinha)().execute();
+    //Marcus quitou sua dívida de R$ 2.000,00 e adotou um canário chamado Loro.
+    (0, useCases_1.useUpdateMarcus)().execute();
+    //Thor possuí coloração escura e cinzenta.
+    (0, useCases_1.useUpdateThor)().execute();
+    //Eduardo mudou-se para seu novo apartamento em Portugal, e infelizmente precisou doar Spike para Maria.
+    (0, useCases_1.useUpdateEduardo)().execute();
 };
 runApplication();
-//Adicione a propriedade "color" a todos os pets, com valor inicial "PATTERN" (vamos usar este valor para específicar animais como 'malhados').
-//Eduardo recebeu uma herança de R$ 1.000.000,00.
-//Recentemente, Spartacus foi descoberto como um "Pastor Alemão".
-//Ana mudou-se para o Canadá.
-//Alfredo é um labrador.
-//Passou-se um ano, qual a idade de cada pessoa agora?
-//Nevinha é branca.
-//Marcus quitou sua dívida de R$ 2.000,00 e adotou um canário chamado Loro.
-//Thor possuí coloração escura e cinzenta.
-//Eduardo mudou-se para seu novo apartamento em Portugal, e infelizmente precisou doar Spike para Maria.
 //Maryanna ganhou incríves R$ 5,00 em uma raspadinha.
 //Viivam apostou online e perdeu R$ 500,00.
 //Passou-se um ano, qual a idade de cada pessoa agora?

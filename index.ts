@@ -2,7 +2,7 @@
 import { useDb } from './src/db'
 
 // useCases
-import { useConsoleOlds, useAddNevinha, useAddFishes, useAddMoney, useAddCountry, useAddDebt, useAddBreed } from './src/useCases'
+import { useConsoleOlds, useAddNevinha, useAddFishes, useAddMoney, useAddCountry, useAddDebt, useAddBreed, useAddColor, useAddInheritance, useUpdateSpartacus, useUpdateCountry, useUpdateAlfredo, useUpdateNevinha, useUpdateMarcus, useUpdateThor, useUpdateEduardo } from './src/useCases'
 
 const runApplication = () => {
   const { initialize } = useDb()
@@ -12,7 +12,7 @@ const runApplication = () => {
   // Antônio adotou uma nova gata chamada Nevinha.
   useAddNevinha().execute()
 
-  // Maria comprou um aquário com trÊs peixes, Cascudo, Rei e Pintado.
+  // Maria comprou um aquário com três peixes, Cascudo, Rei e Pintado.
   useAddFishes().execute()
 
   //Qual a idade de cada pessoa agora?
@@ -29,31 +29,42 @@ const runApplication = () => {
   
   //Adicione a propriedade "breed" (raça) a todos os pets, com valor inicial "SRD" (Sem raça definida).
   useAddBreed().execute()
+
+  //Adicione a propriedade "color" a todos os pets, com valor inicial "PATTERN" (vamos usar este valor para específicar animais como 'malhados').
+  useAddColor().execute()
+  
+  //Eduardo recebeu uma herança de R$ 1.000.000,00.
+  useAddInheritance().execute()
+  
+  //Recentemente, Spartacus foi descoberto como um "Pastor Alemão".
+  useUpdateSpartacus().execute()
+  
+  //Ana mudou-se para o Canadá.
+  useUpdateCountry().execute()
+  
+  //Alfredo é um labrador.
+  useUpdateAlfredo().execute()
+  
+  //Passou-se um ano, qual a idade de cada pessoa agora?
+  useConsoleOlds(1).execute()
+  
+  //Nevinha é branca.
+  useUpdateNevinha().execute()
+
+  //Marcus quitou sua dívida de R$ 2.000,00 e adotou um canário chamado Loro.
+  useUpdateMarcus().execute()
+  
+  //Thor possuí coloração escura e cinzenta.
+  useUpdateThor().execute()
+
+  //Eduardo mudou-se para seu novo apartamento em Portugal, e infelizmente precisou doar Spike para Maria.
+  useUpdateEduardo().execute() //Corrigir
+
 }
 
 runApplication()
 
 
-
-//Adicione a propriedade "color" a todos os pets, com valor inicial "PATTERN" (vamos usar este valor para específicar animais como 'malhados').
-
-//Eduardo recebeu uma herança de R$ 1.000.000,00.
-
-//Recentemente, Spartacus foi descoberto como um "Pastor Alemão".
-
-//Ana mudou-se para o Canadá.
-
-//Alfredo é um labrador.
-
-//Passou-se um ano, qual a idade de cada pessoa agora?
-
-//Nevinha é branca.
-
-//Marcus quitou sua dívida de R$ 2.000,00 e adotou um canário chamado Loro.
-
-//Thor possuí coloração escura e cinzenta.
-
-//Eduardo mudou-se para seu novo apartamento em Portugal, e infelizmente precisou doar Spike para Maria.
 
 //Maryanna ganhou incríves R$ 5,00 em uma raspadinha.
 

@@ -1,16 +1,16 @@
 import { usePersonRepository } from '../db'
 import { Person } from '../types'
 
-export const useAddDebt = () => {
+export const useUpdateCountry = () => {
     const { updatePerson, findPerson } = usePersonRepository()
 
     const execute = (): void => {
-    let data = findPerson("Marcus") as Person
-    data.money = -2000
+    let data = findPerson("Ana") as Person
+    data.country = "Canadá"
         updatePerson(data)
 
     console.log(
-      `\nMarcus adquiriu uma dívida nova: ${data.money}\n`,
+      `\nAna se mudou para outro país: ${data.country}\n`,
 data
       )
 }

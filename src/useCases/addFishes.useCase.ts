@@ -9,7 +9,7 @@ export const useAddFishes = () => {
     createPet('Maria', { name: 'Pintado', type: 'fish' })
 
     console.log(
-      'Maria comprou um aquário com trÊs peixes, Cascudo, Rei e Pintado.'
+      'Maria comprou um aquário com três peixes, Cascudo, Rei e Pintado.'
     )
     logPets('Maria')
   }
